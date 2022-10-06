@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int answer, mass;
+    cout << "Введите массу тела: ";
+    cin >> mass;
+    cout << "1 - Килограмм; 2 - Миллиграмм; 3 - Грамм; 4 - тонна; 5 - центнер;  "; cin >> answer;
+    switch(answer){
+        case 1:
+            cout << mass << "кг";
+        default:
+            cout << "Некорректно выбрана масса";
+    }
+    return 0;
+}
