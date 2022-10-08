@@ -4,15 +4,32 @@ using namespace std;
 
 int main()
 {
-    int answer, mass;
+    int answer;
+    double mass;
     cout << "Введите массу тела: ";
     cin >> mass;
-    cout << "1 - Килограмм; 2 - Миллиграмм; 3 - Грамм; 4 - тонна; 5 - центнер;  "; cin >> answer;
+    cout <<"Введите номер единицы измерения (1 - Килограмм; 2 - Миллиграмм; 3 - Грамм; 4 - тонна; 5 - центнер): "; 
+    cin >> answer;
     switch(answer){
         case 1:
-            cout << mass << "кг";
+            cout << mass << " кг";
+            break;
+        case 2:
+            cout << mass / 1000000 << " кг";
+            break;
+        case 3:
+            cout << (mass / 1000) << " кг";
+            break;
+        case 4:
+            cout << (mass * 1000) << " кг";
+            break;
+        case 5:
+            cout << (mass * 100) << " кг";
+            break;
         default:
-            cout << "Некорректно выбрана масса";
+            cout << "Введена некорректная единица измерения.";
+            break;
+            
     }
     return 0;
 }
