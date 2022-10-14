@@ -52,5 +52,5 @@ int main() {
         m++;
     }
     
-    cout << res << " " << sum_moreE << " " << sum_newE << " " << (1/(sqrt(1/x))) << endl;
+    cout << res << " " << sum_moreE << " " << sum_newE << " " << (1/(sqrt(1+x))) << endl;
 }
