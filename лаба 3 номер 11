@@ -1,0 +1,255 @@
+# include <iostream>
+
+using namespace std;
+
+int main(){
+
+    char storonasveta;
+    int N1,N2;
+
+    cout << "Введите сторону света: "<< endl;
+    cin >> storonasveta;
+    cout << "Введите первую команду поворота (1 - поворот налево, -1 - поворот направо, 2 - поворот на 180 градусов): "<< endl;
+    cin >> N1;
+    cout << "Введите вторую команду поворота (1 - поворот налево, -1 - поворот направо, 2 - поворот на 180 градусов): "<< endl;
+    cin >> N2;
+    
+    
+    switch (storonasveta){
+
+        case 'C':
+        //N1
+        switch (N1){
+        
+            case 1:
+            //N2
+                switch (N2){
+                
+                    case 1:
+                        storonasveta = 'Ю';
+                        break;
+                    case -1:
+                        storonasveta = 'С';
+                        break;
+                    case 2:
+                        storonasveta = 'В';
+                        break;
+                break;
+                }
+            break;
+            case -1:
+            //N2
+                switch (N2){
+
+                    case 1:
+                        storonasveta = 'С';
+                        break;
+                    case -1:
+                        storonasveta = 'Ю';
+                        break;
+                    case 2:
+                        storonasveta = 'З';
+                        break;
+                    break;
+                }
+                break;
+            break;
+            case 2:
+            //N2
+                switch (N2){
+            
+                    case 1:
+                        storonasveta = 'В';
+                        break;
+                    case -1:
+                        storonasveta = 'З';
+                        break;
+                    case 2:
+                        storonasveta = 'С';
+                        break;
+                    break;
+                }
+                break;
+            break;
+            }
+        break;
+
+        case 'Ю':
+            switch (N1){
+                    
+                case 1:
+                //N2
+                    switch (N2) {
+               
+                        case 1:
+                            storonasveta = 'С';
+                            break;
+                        case -1:
+                            storonasveta = 'Ю';
+                            break;
+                        case 2:
+                            storonasveta = 'З';
+                            break;
+                        break;
+                    }
+                    break;
+                storonasveta = 'В';
+                break;
+                case -1:
+                //N2
+                    switch (N2){
+    
+                        case 1:
+                            storonasveta = 'Ю';
+                            break;
+                        case -1:
+                            storonasveta = 'С';
+                            break;
+                        case 2:
+                            storonasveta = 'В';
+                            break;
+                        break;
+                    }
+                break;
+                storonasveta = 'З';
+            break;
+                case 2:
+                //N2
+                    switch (N2){
+
+                        case 1:
+                            storonasveta = 'З';
+                            break;
+                        case -1:
+                            storonasveta = 'В';
+                            break;
+                        case 2:
+                            storonasveta = 'Ю';
+                            break;
+                        break;
+                    }
+                    break;
+                storonasveta = 'С';
+                break;
+            }
+            break;
+        case 'З':
+            switch (N1){
+
+                case 1:
+                //N2
+                    switch (N2){
+
+                        case 1:
+                            storonasveta = 'В';
+                            break;
+                        case -1:
+                            storonasveta = 'З';
+                            break;
+                        case 2:
+                            storonasveta = 'С';
+                            break;
+                        break;
+                    }
+                    break;
+                storonasveta = 'Ю';
+                break;
+                case -1:
+                //N2
+                    switch (N2){
+
+                        case 1:
+                            storonasveta = 'З';
+                            break;
+                        case -1:
+                            storonasveta = 'В';
+                                break;
+                        case 2:
+                            storonasveta = 'Ю';
+                            break;
+                        break;
+                    }
+                    break;
+                storonasveta = 'С';
+                break;
+                case 2:
+                //N2
+                    switch (N2){
+
+                        case 1:
+                            storonasveta = 'С';
+                            break;
+                        case -1:
+                            storonasveta = 'Ю';
+                            break;
+                        case 2:
+                            storonasveta = 'З';
+                            break;
+                        break;
+                    }
+                break;
+                storonasveta = 'В';
+            break;
+            }
+        break;
+        case 'В':
+            switch (N1){
+
+                case 1:
+                //N2
+                    switch (N2){
+
+                        case 1:
+                            storonasveta = 'З';
+                            break;
+                        case -1:
+                            storonasveta = 'В';
+                            break;
+                        case 2:
+                            storonasveta = 'Ю';
+                            break;
+                        break;
+                    }
+                    break;
+                break;
+                case -1:
+                //N2
+                    switch (N2){
+                            
+                        case 1:
+                            storonasveta = 'В';
+                            break;
+                        case -1:
+                            storonasveta = 'З';
+                            break;
+                        case 2:
+                            storonasveta = 'С';
+                            break;
+                        break;
+                    }
+                    break;
+                break;
+                case 2:
+                //N2
+                    switch (N2){
+
+                        case 1:
+                            storonasveta = 'Ю';
+                            break;
+                        case -1:
+                            storonasveta = 'С';
+                            break;
+                        case 2:
+                            storonasveta = 'В';
+                            break;
+                        break;
+                    }
+                    break;
+                break;
+                }
+            break;
+        default:
+            break;
+}
+cout << "Ваше направление сейчас на: " << storonasveta<< endl;
+}
