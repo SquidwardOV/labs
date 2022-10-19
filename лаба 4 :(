@@ -8,29 +8,30 @@ int main() {
     cout << "Введите x,N,E"<<endl;
     cin >> x >> N >> E;
     newE = E / 10;
+    res = 1;
     for (n_for = 1; n_for <= N; n_for++) {
-        k *= 2*n_for;
-        for(chisl = 1; chisl <= n_for; chisl++); {
-            chisl *= ((2*n_for)-1);
-        }
+        k *= (2 * n_for);
+        chisl *= ((2 * n_for) - 1);
         power = power * x;
-        t =(chisl/k) * (power);
-        
-            if (n_for % 2 == 0){
-            res += t;
-        }
-            if (n_for % 2 != 0){
-            res -= t;
-        }
+        t = (chisl / k) * (power);
+
+
+    if (n_for % 2 == 0) {
+        res += t;
+    }
+    if (n_for % 2 == 1) {
+        res -= t;
+    }
+    chisl=1;
     }
     int i=1;
-    k=1;
-    power=1;
+    k = 1;
+    power =1 ;
     while (abs(t)>E){
-        k *= (2*i) ;
-            chisl *= ((2*i)-1);
-                power = power * x;
-                t = (chisl/k) * (power);
+        k *= (2 *i);
+        chisl *= ((2 * i) - 1);
+        power = power * x;
+        t = (chisl / k) * (power);
                 if (abs(t) > E){
                     sum_moreE += t;
                 }
@@ -41,12 +42,12 @@ int main() {
     power = 1;
     k = 1;
     while (abs(t) > newE){
-            k *= (2*m) ;
-            chisl *= ((2*m)-1);
-                power = power * x;
-                t = (chisl/k) * (power);
-                if (abs(t) > newE){
-                    sum_newE += t;
+        k *= (2 * m);
+        chisl *= ((2 * m) - 1);
+        power = power * x;
+        t = (chisl / k) * (power);
+            if (abs(t) > newE){
+                sum_newE += t;
              }
         
         m++;
