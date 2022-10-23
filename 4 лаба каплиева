@@ -1,45 +1,93 @@
-#include<iostream>
-#include<cmath>
-
-using namespace std;
+#include <iostream>
+#include <Windows.h>
+#include <iomanip>
 
 int main()
 {
-    double x, E, sum1, sum2, element, k, chisl, power, t;
-    int N, count = 0;
-    cout << "Введите x: "; cin >> x; cout << endl;
-    cout << "Введите N: "; cin >> N; cout << endl;
-    cout << "Введите E: "; cin >> E; cout << endl;
-    for (int i = 0; i < N; ++i) {
-        k *= (2 * i);
-        for (int j = 1; j <= i; ++j){;
-            chisl *= ((2 * j) - 1);
+    
+    SetConsoleOutputCP(1251);
+    
+    int choice;
+    std::cout << "1. Сумма заданного каличества слагаемых\n";
+    std::cout << "2. Сумма с заданной точностью\n";
+    std::cout << "3. Завершить работу\n";
+    bool isError = false;
+    do
+    {
+        std::cout << "-> ";
+        std::cin >> choice;
+        if (std::cin.fail() || choice < 1 || choice > 3)
+        {
+            isError = true;
+            std::cout << "Ошибка ввода!\n";
+            std::cin.clear();
+            std::cin.ignore(std::cin.rdbuf() -> in_avail());
         }
-        power = power * x;
-        t = (chisl / k) * (power);
+        else
+            isError = false;
+    } while (isError);
+    
+    //std::cout << choice << '\n';
+    if (choice != 3)
+    {
         
-        if (i % 2 == 0) {
-            sum1 += t;
+        //-------------------------------------------
+        double x;
+        std::cout << "Введите значение x: ";
+        while (!(std::cin >> x) || abs(x) >=1)
+        {
+            std::cout << "Ошибка ввода (|x|<1)!\n";
+            std::cin.clear();
+            std::cin.ignore(255, '\n');
         }
-        if (i % 2 != 0) {
-            sum1 -= t;
+        //std::cout << x << '\n';
+        std::cout << std::setw(26) << std::left << "Приближённое значение"<< " = "<< std::fixed << std::setprecision(11) << (1 / sqrt (1+x))<< '\n';
+        if (choice == 1)
+        {
+            std::cout << "Задача 1\n";
+            std::cout << "Введите количество слагаемых:\n";
+            int n;
+            std::cin >> n;
+            double s = 0, a = x;
+            for (int i = 0; i < n; ++i )
+            {
+                s += a;
+                a *= x * x*(2 * i + 1)*(2 * i + 1) / (2 * (i + 1)*(2 * i + 3));
+            }
         }
-        chisl = 1;
+        else    //choice = 2
+        {
+            std::cout << "Задача 2\n";
+            double E;
+            std::сout << "Введите точность вычислений: ";
+            int i = 0;
+            double s = 0, a = x;
+            while (abs(a) > E)
+            {
+                s += a;
+                a *= x * x*(2 * i + 1)*(2 * i + 1) / (2 * (i + 1)*(2 * i + 3))
+                ++i
+            }
+            std::cout << "Точность = "<< E << '\n';
+            std::cout << "Количество слагаемых = "<< i << '\n';
+            std::cout << std::setw(26) << std::left << "Приближённое значение"<< " = "<< std::fixed << std::setprecision(11)<< s << '\n';
+            E = E/10;
         }
-        
-    }
-    for (int i = 0; i < N; ++i){
-        for (int j = 1; j <= i; ++j){
-        power = power * x;
-        element = (((2 * i) - 1) / (k * (2 * i))) * power;
-        if (abs(element) > E * 11) {sum2 += element; ++count;}
-        else break;
-        }
-    }
-    cout << "Первая сумма: " << sum1 << endl;
-    cout << "Вторая сумма: " << sum2 << endl;
-    cout << "Количество слагаемых: " << count << endl;
-    cout << "Результат расчета функции: " << pow(M_E, x * -1) << endl;
-    cout << "Результат функции - сумма2 = " << pow(M_E, x * -1) - sum2;
+        char isExit;
+        std::cout << "Завершить работу (Y/N - любой символ)\n";
+        std::cin >> isExit;
+        if (isExit == 'Y' || isExit == 'y')
+            choice = 3;
+    } while (choice != 3);
+    
+    
+    std::cin.ignore().get();
     return 0;
+        
 }
+
+    
+    
+    
+    
+
