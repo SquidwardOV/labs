@@ -6,9 +6,6 @@ int main()
     int k = 0, n;
     int arr[n], res[n];
     int count;
-    void InsertSort (int r,int x[max]) {
-    int m, n, temp;
-
     cout << "Введите количество символов в массиве: ";
     cin>>n;
     for(int i = 0; i < n; i++)
@@ -30,17 +27,5 @@ int main()
     for(int i = 0; i < k; i++)
         cout << res[i] << " ";
         
-    for (m=0;m<r;m++) {
-    //цикл проходов, i - номер прохода
-    temp=x[m]; 
-    //поиск места элемента
-    for (n=m-1; n>=0 && x[n]>temp; n--)
-      x[n+1]=x[n];//сдвигаем элемент вправо, пока не дошли
-      //место найдено, вставить элемент 
-      x[n+1]=temp;  
   }
-}
-        
-        
-        
-}
+
