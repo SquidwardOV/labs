@@ -6,11 +6,12 @@ using namespace std;
 int main()
 {
     int size, count = 0, k = 0;
-    int *arr = new int[size];
-    int *new_arr = new int[size];
-    
+ 
     cout << "Введите количество элементов в изначальном массиве: ";
     cin >> size;
+    
+    int *arr = new int[size];
+    int *new_arr = new int[size];
     
     cout << "Введите элементы массива: ";
     for (int i = 0; i < size; ++i){
