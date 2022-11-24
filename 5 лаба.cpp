@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <cstdlib>
+#include <Windows.h>
 
 using namespace std;
 
@@ -17,16 +18,18 @@ void inclusionSort (int *num, int size){
 
 
 int main(){
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
 
     int size, count = 0, k = 0;
 
-    cout << "Введите количество элементов в изначальном массиве: ";
+    cout << "Ââåäèòå êîëè÷åñòâî ýëåìåíòîâ â èçíà÷àëüíîì ìàññèâå: "<<endl;
     cin >> size;
 
     int* arr = new int[size];
     int* new_arr = new int[size];
 
-    cout << "Введите элементы массива: ";
+    cout << "Ââåäèòå ýëåìåíòû ìàññèâà: "<<endl;;
     for (int i = 0; i < size; ++i) {
         cin >> arr[i];
     }
@@ -48,19 +51,18 @@ int main(){
     }
 
 
-int* res_arr = new int[k];
+     int* res_arr = new int[k];
 
-for (int i = 0; i < k; ++i) {
-res_arr[i] = new_arr[i];
-}
-delete[] arr;
-delete[] new_arr;
+     for (int i = 0; i < k; ++i) {
+         res_arr[i] = new_arr[i];
+         }
+         delete[] arr;
+         delete[] new_arr;
+          inclusionSort(res_arr,k);
+         for (int i = 0; i < k; ++i) {
+             cout << res_arr[i] << " ";
+         }
 
-for (int i = 0; i < k; ++i) {
-cout << res_arr[i] << " ";
-}
-
-delete[] res_arr;
-
-
+         delete[] res_arr;
+system("pause");
 }
